@@ -1,0 +1,83 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Web.Common.PublishedModels
+
+
+@{
+    var Categories = ((Umbraco.Cms.Web.Common.PublishedModels.HomePage)Model).Categories;
+}
+
+
+
+
+<!-- Products Section Dynamic -->
+<section id="Products" class="Products section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2 data-translate="products_title">Products</h2>
+        <p><span data-translate="check_our">Check Our&nbsp;</span> <span class="description-title" data-translate="products_label">Products</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+        @if(Categories != null && Categories.Any())
+        {
+            <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+                <ul class="Products-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                    <li data-filter="*" class="filter-active" >@Model.Value("all")</li>
+                    @foreach (var category in Categories)
+                    {
+                        var categoryContent = category.Content;
+                        var categoryName = categoryContent.Value<string>("categoryName");
+                        var categroyNameSpecial = categoryName.Trim().Replace(" ", "-");
+                        <li data-filter=".filter-@categroyNameSpecial">@categoryName</li>
+                    }
+                </ul><!-- End Products Filters -->
+
+                <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+                    @foreach (var category in Categories)
+                    {
+                        var categoryContent = category.Content;
+                        var categoryName = categoryContent.Value<string>("categoryName");
+                        var categroyNameSpecial = categoryName.Trim().Replace(" ", "-");
+                        var Products = ((CompanyCategories)categoryContent).ListOfCompanyProducts;
+                        if(Products != null && Products.Any())
+                        {
+                            foreach (var product in Products)
+                            {
+                                var productContent = product.Content;
+                                var mainImage = ((CompanyProducts)productContent).ProductImages.FirstOrDefault();
+                                var mainImageURL = mainImage.LocalCrops.Src;
+                                var productName = productContent.Value<string>("ProductTitle");
+                                var productDescription = productContent.Value<string>("ProductDetails");
+                                //var productImageSrc = "/";// productImage.Url;
+                                //var productImageSrc2 = //((Umbraco.Cms.Core.Models.MediaWithCrops<Umbraco.Cms.Web.Common.PublishedModels.Image>)(new System.Collections.Generic.ICollectionDebugView<Umbraco.Cms.Core.Models.MediaWithCrops>(((Umbraco.Cms.Web.Common.PublishedModels.CompanyProducts)productContent).ProductImages).Items[0])).Content.UmbracoFile.Src;
+                                //var productImageSrc = productImage.Url;
+                                <div class="col-lg-4 col-md-6 Products-item isotope-item filter-@categroyNameSpecial">
+                                    <img src="@mainImageURL" class="img-fluid" alt="">
+                                    <div class="Products-info">
+                                        <h4>@productName</h4>
+                                        @Html.Raw(@productDescription)
+                                        <a href="@mainImageURL" title="@productName" data-gallery="Products-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                        <a href="Products-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                    </div>
+                                </div><!-- End Products Item -->
+                            }
+                        } else
+                        {
+                            <p>No Products Found within this Category</p>
+                        }
+                    }
+                </div><!-- End Products Container -->
+
+            </div>
+        } else
+        {
+            <p>No Data Found</p>
+        }
+    </div>
+
+</section><!-- /Products Section Dynamic-->

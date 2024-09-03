@@ -1,0 +1,41 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+<header id="header" class="header sticky-top">
+
+    <div class="topbar d-flex align-items-center">
+        <div class="container d-flex justify-content-center justify-content-md-between">
+            <div class="contact-info d-flex align-items-center">
+                <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:@Model.Value("emailAddress")">@Model.Value("emailAddress")</a></i>
+                <i class="bi bi-phone d-flex align-items-center ms-4"><span>@Model.Value("phoneNumber")</span></i>
+            </div>
+            <div class="social-links d-none d-md-flex align-items-center">
+                <a target="_blank" href="@Model.Value("facebook")" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a target="_blank" href="@Model.Value("instagram")" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a target="_blank" href="https://wa.me/@Model.Value("phoneNumber")" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+                <!-- <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a> -->
+                <!-- <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a> -->
+            </div>
+        </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-cente">
+
+        <div class="container position-relative d-flex align-items-center justify-content-between">
+            <a href="/" class="logo d-flex align-items-center">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <img src="assets/img/RoshanOASIS.jpg" alt="CompanyLogo" style="height: auto;">
+                <h1 class="sitename" >@Model.Value("companyName")</h1>
+            </a>
+
+            @await Html.PartialAsync("navigation")
+
+        </div>
+
+        <!-- <div class="language-switcher">
+          <button onclick="setLanguage('en')">English</button>
+          <button onclick="setLanguage('ar')">العربية</button>
+        </div> -->
+
+    </div>
+
+</header> <!-- /Header Section -->

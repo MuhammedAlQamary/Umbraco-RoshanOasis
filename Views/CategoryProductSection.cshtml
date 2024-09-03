@@ -1,0 +1,191 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.CategoryProductSection>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+}
+@Model.Value("categoryName")
+@Model.Value("categoryName")
+@Model.Value("categoryName")
+    <!-- Products Section -->
+    <section id="Products" class="Products section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2 data-translate="products_title">Products</h2>
+        <p><span data-translate="check_our">Check Our&nbsp;</span> <span class="description-title" data-translate="products_label">Products</span></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <ul class="Products-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active" data-translate="All">All</li>
+            <li data-filter=".filter-Factory_and_commercial" data-translate="Factory_and_commercial">@Model.Value("categoryName")</li>
+            <li data-filter=".filter-ProductsRoad_security_and_safety" data-translate="ProductsRoad_security_and_safety">Road, security, and safety</li>
+            <li data-filter=".filter-Modern_home" data-translate="Modern_home">Modern home</li>
+            <li data-filter=".filter-Thermoses_and_ice_boxes" data-translate="Thermoses_and_ice_boxes">Thermoses and ice boxes</li>
+            <li data-filter=".filter-Trash_containers" data-translate="Trash_containers">Trash containers</li>
+          </ul><!-- End Products Filters -->
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 Products-item isotope-item filter-Factory_and_commercial">
+              <img src="assets/img/masonry-Products/مستلزمات المصانع والمراكز التجارية/1.png" class="img-fluid" alt="">
+              <div class="Products-info">
+                <h4>Plastic Pallet</h4>
+                <p>Any required desciption, add it here </p>
+                <a href="assets/img/masonry-Products/مستلزمات المصانع والمراكز التجارية/1.png" title="Plastic Pallet" data-gallery="Products-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="Products-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Products Item -->
+
+            <div class="col-lg-4 col-md-6 Products-item isotope-item filter-ProductsRoad_security_and_safety">
+              <img src="assets/img/masonry-Products/مستلزمات الطرق والأمن والسلامة/1.png" class="img-fluid" alt="">
+              <div class="Products-info">
+                <h4>Traffic Con</h4>
+                <p>Any required desciption, add it here </p>
+                <a href="assets/img/masonry-Products/مستلزمات الطرق والأمن والسلامة/1.png" title="Traffic Con" data-gallery="Products-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="Products-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Products Item -->
+
+            <div class="col-lg-4 col-md-6 Products-item isotope-item filter-Modern_home">
+              <img src="assets/img/masonry-Products/مستلزمات البيت الحديث/1.png" class="img-fluid" alt="">
+              <div class="Products-info">
+                <h4>Multi-Purpose Basket</h4>
+                <p>Any required desciption, add it here </p>
+                <a href="assets/img/masonry-Products/مستلزمات البيت الحديث/1.png" title="Multi-Purpose Basket" data-gallery="Products-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="Products-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Products Item -->
+
+            <div class="col-lg-4 col-md-6 Products-item isotope-item filter-Thermoses_and_ice_boxes">
+              <img src="assets/img/masonry-Products/ترامــس و أيـس بــوكس/1.png" class="img-fluid" alt="">
+              <div class="Products-info">
+                <h4>Water Thermos</h4>
+                <p>Any required desciption, add it here </p>
+                <a href="assets/img/masonry-Products/ترامــس و أيـس بــوكس/1.png" title="Water Thermos" data-gallery="Products-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="Products-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Products Item -->
+
+            <div class="col-lg-4 col-md-6 Products-item isotope-item filter-Trash_containers">
+              <img src="assets/img/masonry-Products/حاويات القمامة/1.png" class="img-fluid" alt="">
+              <div class="Products-info">
+                <h4>TRASH CAN</h4>
+                <p>Any required desciption, add it here </p>
+                <a href="assets/img/masonry-Products/حاويات القمامة/1.png" title="TRASH CAN" data-gallery="Products-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="Products-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Products Item -->
+
+            <div class="col-lg-4 col-md-6 Products-item isotope-item filter-Factory_and_commercial">
+              <img src="assets/img/masonry-Products/مستلزمات المصانع والمراكز التجارية/2.png" class="img-fluid" alt="">
+              <div class="Products-info">
+                <h4>Multi-Purpose Storage Box</h4>
+                <p>Any required desciption, add it here </p>
+                <a href="assets/img/masonry-Products/مستلزمات المصانع والمراكز التجارية/2.png" title="Multi-Purpose Storage Box" data-gallery="Products-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="Products-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Products Item -->
+
+            <div class="col-lg-4 col-md-6 Products-item isotope-item filter-ProductsRoad_security_and_safety">
+              <img src="assets/img/masonry-Products/مستلزمات الطرق والأمن والسلامة/2.png" class="img-fluid" alt="">
+              <div class="Products-info">
+                <h4>Filled Traffic Barrel - 2 pcs</h4>
+                <p>Any required desciption, add it here </p>
+                <a href="assets/img/masonry-Products/مستلزمات الطرق والأمن والسلامة/2.png" title="Filled Traffic Barrel - 2 pcs" data-gallery="Products-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="Products-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Products Item -->
+
+            <div class="col-lg-4 col-md-6 Products-item isotope-item filter-Modern_home">
+              <img src="assets/img/masonry-Products/مستلزمات البيت الحديث/2.png" class="img-fluid" alt="">
+              <div class="Products-info">
+                <h4>Filled Traffic Barrel - 2 pcs</h4>
+                <p>Any required desciption, add it here </p>
+                <a href="assets/img/masonry-Products/مستلزمات البيت الحديث/2.png" title="Filled Traffic Barrel - 2 pcs" data-gallery="Products-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="Products-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Products Item -->
+
+            <div class="col-lg-4 col-md-6 Products-item isotope-item filter-Thermoses_and_ice_boxes">
+              <img src="assets/img/masonry-Products/ترامــس و أيـس بــوكس/2.png" class="img-fluid" alt="">
+              <div class="Products-info">
+                <h4>Water Thermos</h4>
+                <p>Any required desciption, add it here </p>
+                <a href="assets/img/masonry-Products/ترامــس و أيـس بــوكس/2.png" title="Water Thermos" data-gallery="Products-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="Products-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Products Item -->
+
+            <div class="col-lg-4 col-md-6 Products-item isotope-item filter-Trash_containers">
+              <img src="assets/img/masonry-Products/حاويات القمامة/2.png" class="img-fluid" alt="">
+              <div class="Products-info">
+                <h4>BLACK DRUM</h4>
+                <p>Any required desciption, add it here </p>
+                <a href="assets/img/masonry-Products/حاويات القمامة/2.png" title="BLACK DRUM" data-gallery="Products-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="Products-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Products Item -->
+
+            <div class="col-lg-4 col-md-6 Products-item isotope-item filter-Factory_and_commercial">
+              <img src="assets/img/masonry-Products/مستلزمات المصانع والمراكز التجارية/3.png" class="img-fluid" alt="">
+              <div class="Products-info">
+                <h4>Shopping Cart</h4>
+                <p>Any required desciption, add it here </p>
+                <a href="assets/img/masonry-Productsمستلزمات المصانع والمراكز التجارية/3.png" title="Shopping Cart" data-gallery="Products-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="Products-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Products Item -->
+
+            <div class="col-lg-4 col-md-6 Products-item isotope-item filter-ProductsRoad_security_and_safety">
+              <img src="assets/img/masonry-Products/مستلزمات الطرق والأمن والسلامة/3.png" class="img-fluid" alt="">
+              <div class="Products-info">
+                <h4>Hard Saety Hat</h4>
+                <p>Any required desciption, add it here </p>
+                <a href="assets/img/masonry-Products/مستلزمات الطرق والأمن والسلامة/3.png" title="Hard Saety Hat" data-gallery="Products-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="Products-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Products Item -->
+
+            <div class="col-lg-4 col-md-6 Products-item isotope-item filter-Modern_home">
+              <img src="assets/img/masonry-Products/مستلزمات البيت الحديث/3.png" class="img-fluid" alt="">
+              <div class="Products-info">
+                <h4>Butterfly Tepsi</h4>
+                <p>Any required desciption, add it here </p>
+                <a href="assets/img/masonry-Products/مستلزمات البيت الحديث/3.png" title="Butterfly Tepsi" data-gallery="Products-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="Products-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Products Item -->
+
+            <div class="col-lg-4 col-md-6 Products-item isotope-item filter-Thermoses_and_ice_boxes">
+              <img src="assets/img/masonry-Products/ترامــس و أيـس بــوكس/3.png" class="img-fluid" alt="">
+              <div class="Products-info">
+                <h4>Ice Box</h4>
+                <p>Any required desciption, add it here </p>
+                <a href="assets/img/masonry-Products/ترامــس و أيـس بــوكس/3.png" title="Ice Box" data-gallery="Products-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="Products-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Products Item -->
+
+            <div class="col-lg-4 col-md-6 Products-item isotope-item filter-Trash_containers">
+              <img src="assets/img/masonry-Products/حاويات القمامة/3.png" class="img-fluid" alt="">
+              <div class="Products-info">
+                <h4>WASTE CONTAINER</h4>
+                <p>Any required desciption, add it here </p>
+                <a href="assets/img/masonry-Products/حاويات القمامة/3.png" title="WASTE CONTAINER" data-gallery="Products-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="Products-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Products Item -->
+
+          </div><!-- End Products Container -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Products Section -->
+

@@ -1,0 +1,6 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@* ~/Views/Partials/FloatingWhatsAppBusinessIcon.cshtml *@
+
+<a href="https://wa.me/@Model.Value("phoneNumber", fallback: Fallback.ToAncestors)" id="whatsapp-float" class="whatsapp-float" target="_blank" title="Contact us on WhatsApp Business">
+    <i class="bi bi-whatsapp"></i>
+</a>
