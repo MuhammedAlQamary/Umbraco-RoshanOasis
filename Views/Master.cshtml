@@ -3,10 +3,15 @@
 
 @{
 	Layout = null;
+    // Retrieve the current culture from the model
+    var CurrentCulture = Model.GetCultureFromDomains();
+
+    // Determine the text direction based on the culture
+    var textDirection = CurrentCulture.Equals("ar-SA", StringComparison.OrdinalIgnoreCase) ? "rtl" : "ltr";
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="@CurrentCulture">
 
 <head>
     @await Html.PartialAsync("metadata")
@@ -39,7 +44,7 @@
     ======================================================== -->
 </head>
 
-<body class="index-page">
+<body class="index-page" dir="@textDirection">
     <!-- Header Section -->
     @await Html.PartialAsync("header")
 
@@ -71,6 +76,31 @@
 
     <!-- Language Switcher Script -->
     <script>
+        // make function that reload the url put after adding the CurrentCulture to the url 
+        function setLanguage(lang) {
+            // check if there is a language in the url
+            if (window.location.href.includes("/en") || window.location.href.includes("/ar")) {
+                // replace the language in the url with the new language
+                window.location.href = window.location.href.replace(/\/(en|ar)/, `/${lang}`);
+            }
+            else {
+                // add the language to the url
+                window.location.href = `/${lang}`;
+                setDir(lang);
+            }
+        }
+        function getLanguage() {
+            return "@CurrentCulture";
+        }
+        function setDir(lang) {
+            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            debugger;
+            let lang = getLanguage();
+
+        });
+
         async function loadTranslations() {
             try {
                 const response = await fetch('translations/index.json'); // Fetch the JSON file
@@ -87,15 +117,49 @@
             }
         }
 
-
-        async function setLanguage(lang) {
+        async function replaceContent(lang) {
             // Use an immediately invoked function expression (IIFE) to call the async function and assign its result
             const translations = await loadTranslations(); // Assign fetched data to `translations`
-
-            console.log(translations); // Example output: { greeting: "Hello", farewell: "Goodbye" }
-
             document.documentElement.lang = lang;
+
+            for (const key in translations[lang]) {
+                document.querySelectorAll(`[data-translate="${key}"]`).forEach(el => {
+                    el.textContent = translations[lang][key];
+                });
+            }
+        }
+    </script>
+
+@* 
+    <script>
+        async function loadTranslations() {
+            try {
+                const response = await fetch('translations/index.json'); // Fetch the JSON file
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+
+                const data = await response.json(); // Parse the JSON data
+
+                return data; // Return the parsed data
+            } catch (error) {
+                console.error('There has been a problem with your fetch operation:', error);
+            }
+        }
+
+        function getLanguage() {
+            return "@Model.GetCultureFromDomains()";
+        }
+
+        function setDir(lang) {
             document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        }
+
+        async function setLanguage(lang, translations) {
+            // Use an immediately invoked function expression (IIFE) to call the async function and assign its result
+             // Assign fetched data to `translations`
+            document.documentElement.lang = lang;
 
             for (const key in translations[lang]) {
                 document.querySelectorAll(`[data-translate="${key}"]`).forEach(el => {
@@ -105,12 +169,14 @@
         }
 
         document.addEventListener("DOMContentLoaded", () => {
-            let lang = 'en';
-            setLanguage(lang); // Set default language to English
-
+            debugger;
+            const translations = loadTranslations();
+            let lang = getLanguage();
+            setLanguage(lang, translations);
+            setDir(lang)
         });
     </script>
-
+ *@
 </body>
 
 </html>

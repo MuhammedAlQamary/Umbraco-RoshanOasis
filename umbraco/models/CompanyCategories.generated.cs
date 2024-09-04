@@ -55,7 +55,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("categoryDescription")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString CategoryDescription => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "categoryDescription");
+		public virtual string CategoryDescription => this.Value<string>(_publishedValueFallback, "categoryDescription");
 
 		///<summary>
 		/// Category Image
