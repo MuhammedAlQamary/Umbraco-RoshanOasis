@@ -5,8 +5,13 @@
     <div class="container">
         <div class="row gy-4">
             <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
-            <h1 data-translate="welcome"> <br> <span data-translate="company_name">Najd Oasis Company</span></h1>
-            <p data-translate="intro_text">We are a team of professionals at Najd Oasis Company, providing high-quality products for diverse needs</p>
+            <h1 data-translate="welcome"> 
+                <br>
+                <span>@Model.Value("companyName")</span>
+            </h1>
+                <p>
+                    @Model.Value("companydefinition")
+                </p>
             <div class="d-flex">
                 <a href="#about" class="btn-get-started" data-translate="get_started">Get Started</a>
                 <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span data-translate="watch_video">Watch Video</span></a>

@@ -37,9 +37,9 @@
                 </ul><!-- End Products Filters -->
 
                 <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
                     @foreach (var category in Categories)
                     {
+                        var msg = $"السلام عليكم ورحمة الله وبركاته\n";
                         var categoryContent = category.Content;
                         var categoryName = categoryContent.Value<string>("categoryName");
                         var categroyNameSpecial = categoryName.Trim().Replace(" ", "-");
@@ -52,17 +52,32 @@
                                 var mainImage = ((CompanyProducts)productContent).ProductImages.FirstOrDefault();
                                 var mainImageURL = mainImage.LocalCrops.Src;
                                 var productName = productContent.Value<string>("ProductTitle");
+                                    // get the current culture
+                                    var culture = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+                                if (culture.Contains("ar"))
+                                {
+                                    msg += $"اريد ان أسأل عن \n{productName} \nمن فضلك اريد تفاصيل اكثر.";
+                                } else if (culture.Contains("en"))
+                                {
+                                    msg += $"I am interested in \n{productName} \nplease provide me with more details.";
+                                }
+                                
+                                var encodedMsg = Uri.EscapeDataString(msg); // URL-encode and replace line breaks with %0A
                                 var productDescription = productContent.Value<string>("ProductDetails");
                                 //var productImageSrc = "/";// productImage.Url;
                                 //var productImageSrc2 = //((Umbraco.Cms.Core.Models.MediaWithCrops<Umbraco.Cms.Web.Common.PublishedModels.Image>)(new System.Collections.Generic.ICollectionDebugView<Umbraco.Cms.Core.Models.MediaWithCrops>(((Umbraco.Cms.Web.Common.PublishedModels.CompanyProducts)productContent).ProductImages).Items[0])).Content.UmbracoFile.Src;
                                 //var productImageSrc = productImage.Url;
-                                <div class="col-lg-4 col-md-6 Products-item isotope-item filter-@categroyNameSpecial">
+                                <div class="col-lg-4 col-md-6 Products-item isotope-item product-image-container filter-@categroyNameSpecial">
                                     <img src="@mainImageURL" class="img-fluid" alt="">
                                     <div class="Products-info">
                                         <h4>@productName</h4>
                                         @Html.Raw(@productDescription)
                                         <a href="@mainImageURL" title="@productName" data-gallery="Products-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                         <a href="Products-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                        <!-- whatsapp icon -->
+                                        <a href="https://api.whatsapp.com/send/?phone=966508850172&text=@encodedMsg" target="_blank" title="Order Now" class="whatsapp-link">
+                                            <i class="bi bi-whatsapp"></i>
+                                        </a>
                                     </div>
                                 </div><!-- End Products Item -->
                             }
@@ -79,5 +94,22 @@
             <p>No Data Found</p>
         }
     </div>
+
+    <style>
+        /* Container for the image and WhatsApp icon */
+        .product-image-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+            /* Ensuring all images are square */
+            .product-image-container img {
+                width: 100%;
+                height: auto;
+                max-height: 200px;
+            }
+
+    </style>
+
 
 </section><!-- /Products Section Dynamic-->
