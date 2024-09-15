@@ -18,39 +18,9 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	// Mixin Content Type with alias "companyData"
-	/// <summary>Company Data</summary>
-	public partial interface ICompanyData : IPublishedElement
-	{
-		/// <summary>Company Name</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		string CompanyName { get; }
-
-		/// <summary>Email Address</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		string EmailAddress { get; }
-
-		/// <summary>Facebook</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		string Facebook { get; }
-
-		/// <summary>Instagram</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		string Instagram { get; }
-
-		/// <summary>phone Number</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		string PhoneNumber { get; }
-	}
-
 	/// <summary>Company Data</summary>
 	[PublishedModel("companyData")]
-	public partial class CompanyData : PublishedElementModel, ICompanyData
+	public partial class CompanyData : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -84,13 +54,8 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("companyName")]
-		public virtual string CompanyName => GetCompanyName(this, _publishedValueFallback);
-
-		/// <summary>Static getter for Company Name</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
-		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetCompanyName(ICompanyData that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "companyName");
+		[ImplementPropertyType("companyName2")]
+		public virtual string CompanyName2 => this.Value<string>(_publishedValueFallback, "companyName2");
 
 		///<summary>
 		/// Email Address
@@ -98,12 +63,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("emailAddress")]
-		public virtual string EmailAddress => GetEmailAddress(this, _publishedValueFallback);
-
-		/// <summary>Static getter for Email Address</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
-		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetEmailAddress(ICompanyData that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "emailAddress");
+		public virtual string EmailAddress => this.Value<string>(_publishedValueFallback, "emailAddress");
 
 		///<summary>
 		/// Facebook
@@ -111,12 +71,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("facebook")]
-		public virtual string Facebook => GetFacebook(this, _publishedValueFallback);
-
-		/// <summary>Static getter for Facebook</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
-		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetFacebook(ICompanyData that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "facebook");
+		public virtual string Facebook => this.Value<string>(_publishedValueFallback, "facebook");
 
 		///<summary>
 		/// Instagram
@@ -124,12 +79,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("instagram")]
-		public virtual string Instagram => GetInstagram(this, _publishedValueFallback);
-
-		/// <summary>Static getter for Instagram</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
-		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetInstagram(ICompanyData that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "instagram");
+		public virtual string Instagram => this.Value<string>(_publishedValueFallback, "instagram");
 
 		///<summary>
 		/// phone Number
@@ -137,11 +87,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("phoneNumber")]
-		public virtual string PhoneNumber => GetPhoneNumber(this, _publishedValueFallback);
-
-		/// <summary>Static getter for phone Number</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
-		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetPhoneNumber(ICompanyData that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "phoneNumber");
+		public virtual string PhoneNumber => this.Value<string>(_publishedValueFallback, "phoneNumber");
 	}
 }

@@ -6,6 +6,7 @@
 
 @{
     var Categories = ((Umbraco.Cms.Web.Common.PublishedModels.HomePage)Model).Categories;
+    var productTitles = ((Umbraco.Cms.Web.Common.PublishedModels.HomePage)Model).ProductTitle.FirstOrDefault().Content as Titles;
 }
 
 
@@ -16,8 +17,8 @@
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2 data-translate="products_title">Products</h2>
-        <p><span data-translate="check_our">Check Our&nbsp;</span> <span class="description-title" data-translate="products_label">Products</span></p>
+        <h2>@productTitles.Title1</h2>
+        <p><span>@productTitles.Title2</span> <span class="description-title">@productTitles.Title3</span></p>
     </div><!-- End Section Title -->
 
     <div class="container">

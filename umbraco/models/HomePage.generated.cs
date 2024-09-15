@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Home Page</summary>
 	[PublishedModel("homePage")]
-	public partial class HomePage : PublishedContentModel, ICatalogs, ICompanyData, IHeaderProperties
+	public partial class HomePage : PublishedContentModel, ICatalogs, IHeaderProperties
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -48,6 +48,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		}
 
 		// properties
+
+		///<summary>
+		/// About
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("aboutTitle")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel AboutTitle => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "aboutTitle");
 
 		///<summary>
 		/// All
@@ -106,12 +114,36 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel ContactInfo => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "contactInfo");
 
 		///<summary>
+		/// Contact
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("contactTitle")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel ContactTitle => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "contactTitle");
+
+		///<summary>
 		/// Main Catalogs Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("mainCatalogsTitle")]
 		public virtual string MainCatalogsTitle => this.Value<string>(_publishedValueFallback, "mainCatalogsTitle");
+
+		///<summary>
+		/// details
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("moreDetails")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel MoreDetails => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "moreDetails");
+
+		///<summary>
+		/// titles
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("moreTitles")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel MoreTitles => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "moreTitles");
 
 		///<summary>
 		/// navmenu
@@ -130,12 +162,28 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel OfferedServices => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "offeredServices");
 
 		///<summary>
+		/// Products
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("productTitle")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel ProductTitle => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "productTitle");
+
+		///<summary>
 		/// services
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("services")]
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel Services => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "services");
+
+		///<summary>
+		/// Services
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("servicesTitle")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel ServicesTitle => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "servicesTitle");
 
 		///<summary>
 		/// Social Media Info
@@ -170,51 +218,11 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> MainCatalogs => global::Umbraco.Cms.Web.Common.PublishedModels.Catalogs.GetMainCatalogs(this, _publishedValueFallback);
 
 		///<summary>
-		/// Company Name
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("companyName")]
-		public virtual string CompanyName => global::Umbraco.Cms.Web.Common.PublishedModels.CompanyData.GetCompanyName(this, _publishedValueFallback);
-
-		///<summary>
-		/// Email Address
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("emailAddress")]
-		public virtual string EmailAddress => global::Umbraco.Cms.Web.Common.PublishedModels.CompanyData.GetEmailAddress(this, _publishedValueFallback);
-
-		///<summary>
-		/// Facebook
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("facebook")]
-		public virtual string Facebook => global::Umbraco.Cms.Web.Common.PublishedModels.CompanyData.GetFacebook(this, _publishedValueFallback);
-
-		///<summary>
-		/// Instagram
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("instagram")]
-		public virtual string Instagram => global::Umbraco.Cms.Web.Common.PublishedModels.CompanyData.GetInstagram(this, _publishedValueFallback);
-
-		///<summary>
-		/// phone Number
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("phoneNumber")]
-		public virtual string PhoneNumber => global::Umbraco.Cms.Web.Common.PublishedModels.CompanyData.GetPhoneNumber(this, _publishedValueFallback);
-
-		///<summary>
 		/// Company Name: Enter a title for the page
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("title")]
-		public virtual string Title => global::Umbraco.Cms.Web.Common.PublishedModels.HeaderProperties.GetTitle(this, _publishedValueFallback);
+		[ImplementPropertyType("companyName")]
+		public virtual string CompanyName => global::Umbraco.Cms.Web.Common.PublishedModels.HeaderProperties.GetCompanyName(this, _publishedValueFallback);
 	}
 }

@@ -1111,6 +1111,8 @@ section,
         height: 64px;
         font-size: 24px;
         margin-right: 15px;
+        margin-left: 10px;
+        /*pe-2*/
         color: var(--accent-color);
         border-radius: 50px;
     }

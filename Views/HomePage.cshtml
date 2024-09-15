@@ -24,6 +24,18 @@
     var testimonialsList = homePage.Testimonials;
 
     var ContactInfoList = homePage.ContactInfo!;
+
+    #region Sections Titles
+    var productTitles = homePage.ProductTitle.FirstOrDefault().Content as Titles;
+    var aboutTitle = homePage.AboutTitle.FirstOrDefault().Content as Titles;
+    var servicesTitle = homePage.ServicesTitle.FirstOrDefault().Content as Titles;
+    var contactTitle = homePage.ContactTitle.FirstOrDefault().Content as Titles;
+    #endregion
+
+    #region More About Us
+    var moreTitles = homePage.MoreTitles.FirstOrDefault().Content as Titles;
+    var moreDetailsList = homePage.MoreDetails;
+    #endregion
 }
 
 <main class="main">
@@ -69,58 +81,59 @@
     @await Html.PartialAsync("Sections/Category_Products")
 
     <!-- About Section -->
-    <section id="about" class="about section light-background">
+    @if (moreDetailsList != null || moreDetailsList.Any())
+    {
+        <section id="about" class="about section light-background">
 
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2 data-translate="about_title">About</h2>
-            <p><span data-translate="find_out_more">Find Out More</span> <span class="description-title" data-translate="about_us">About Us</span></p>
-        </div><!-- End Section Title -->
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>@aboutTitle.Title1</h2>
+                <p><span>@aboutTitle.Title2</span> <span class="description-title">@aboutTitle.Title3</span></p>
+            </div><!-- End Section Title -->
 
-        <div class="container">
+            <div class="container">
 
-            <div class="row gy-3">
+                <div class="row gy-3">
 
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                    <img src="assets/img/about.jpg" alt="" class="img-fluid">
-                </div>
-
-                <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="about-content ps-0 ps-lg-3">
-                        <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
-                        <p class="fst-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua.
-                        </p>
-                        <ul>
-                            <li>
-                                <i class="bi bi-diagram-3"></i>
-                                <div>
-                                    <h4>Ullamco laboris nisi ut aliquip consequat</h4>
-                                    <p>Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="bi bi-fullscreen-exit"></i>
-                                <div>
-                                    <h4>Magnam soluta odio exercitationem reprehenderi</h4>
-                                    <p>Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata redi</p>
-                                </div>
-                            </li>
-                        </ul>
-                        <p>
-                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                            culpa qui officia deserunt mollit anim id est laborum
-                        </p>
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                        <img src="assets/img/about.jpg" alt="" class="img-fluid">
                     </div>
 
+                    <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="about-content ps-0 ps-lg-3">
+                            <h3>@moreTitles.Title1</h3>
+                            <p class="fst-italic">
+                                @moreTitles.Title2
+                            </p>
+                            <ul>
+                                @foreach (var moreDetails in moreDetailsList)
+                                {
+                                    var moreDetailsContent = moreDetails.Content as BasicInfo;
+
+                                    <li>
+                                        <i class="bi @moreDetailsContent.Icon"></i>
+                                        <div>
+                                            <h4>@moreDetailsContent.Title</h4>
+                                            <p>@moreDetailsContent.Data</p>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                            <p>
+                                @moreTitles.Title3;
+                            </p>
+                        </div>
+
+                    </div>
                 </div>
+
             </div>
 
-        </div>
+        </section>
 
-    </section><!-- /About Section -->
+        <!-- /About Section -->
+    }
+
     <!-- Stats Section -->
     @if (stateItemsList != null || stateItemsList.Any())
     {
@@ -210,8 +223,8 @@
         <section id="services" class="services section">
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Services</h2>
-                <p><span>Check Our</span> <span class="description-title">Services</span></p>
+                <h2>@servicesTitle.Title1</h2>
+                <p><span>@servicesTitle.Title2</span> <span class="description-title">@servicesTitle.Title3</span></p>
             </div><!-- End Section Title -->
 
 
@@ -323,8 +336,8 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2 data-translate="contact_us">Contact Us</h2>
-                <p><span data-translate="need_help">Need Help?</span> <span class="description-title" data-translate="contact_us">Contact Us</span></p>
+                <h2>@contactTitle.Title1</h2>
+                <p><span>@contactTitle.Title2</span> <span class="description-title">@contactTitle.Title3</span></p>
             </div><!-- End Section Title -->
 
             <div class="container" data-aos="fade-up" data-aos-delay="@delay">
@@ -349,7 +362,7 @@
                                     <div>
                                         <h3>@contactInfoTitle</h3>
                                         <a href="@url" target="_blank"><p>@contactInfoData</p></a>
-                                        
+
                                     </div>
                                 </div>
 
