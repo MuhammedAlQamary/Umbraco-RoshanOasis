@@ -204,7 +204,7 @@ h6 {
 .header .branding {
     background-color: var(--background-color);
     min-height: 60px;
-    padding: 10px 0;
+    /* padding: 10px 0; */
 }
 
 .header .logo {
@@ -212,7 +212,7 @@ h6 {
 }
 
     .header .logo img {
-        max-height: 36px;
+        max-height: 101px;
         margin-right: 8px;
     }
 
@@ -2098,4 +2098,11 @@ section#about {
 
 .credits a {
     color: inherit;
+}
+
+/* aT MEDIA MIND WIDNTH 600 PX HID BY CLASS DISPLAY-NONE */
+@media (max-width: 600px) {
+    .display-none {
+        display: none;
+    }
 }
