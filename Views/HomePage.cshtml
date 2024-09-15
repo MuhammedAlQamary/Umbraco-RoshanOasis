@@ -18,10 +18,16 @@
     var stateItemsList = homePage.StateItems;
 
     var clientsImages = homePage.ClientsImages;
+
+    var OfferedServicesList = homePage.OfferedServices;
+
+    var testimonialsList = homePage.Testimonials;
+
+    var ContactInfoList = homePage.ContactInfo!;
 }
 
 <main class="main">
-  
+
     @await Html.PartialAsync("Sections/Hero")
 
     <!-- Featured Services Section -->
@@ -31,10 +37,12 @@
 
             <div class="row gy-4">
 
-                @{var dataaos = 0;}
+                @{
+                    var dataaos = 0;
+                }
                 @if (servicesList.Any())
                 {
-                    foreach(var service in servicesList)
+                    foreach (var service in servicesList)
                     {
                         dataaos = +100;
                         var serviceContent = service.Content as BasicInfo;
@@ -58,7 +66,6 @@
         </div>
 
     </section><!-- /Featured Services Section -->
-
     @await Html.PartialAsync("Sections/Category_Products")
 
     <!-- About Section -->
@@ -114,14 +121,13 @@
         </div>
 
     </section><!-- /About Section -->
-
     <!-- Stats Section -->
     @if (stateItemsList != null || stateItemsList.Any())
     {
         <section id="stats" class="stats section">
             <div class="container" data-aos="fade-up" data-aos-delay="100">
                 <div class="row gy-4">
-                    @foreach(var stateItem in stateItemsList)
+                    @foreach (var stateItem in stateItemsList)
                     {
                         var stateItemContent = stateItem.Content as BasicInfo;
 
@@ -131,7 +137,9 @@
                                 <span data-purecounter-start="0" data-purecounter-end="@stateItemContent.Data" data-purecounter-duration="1" class="purecounter"></span>
                                 <p>@stateItemContent.Title</p>
                             </div>
-                        </div><!-- End Stats Item -->                        
+                        </div>
+
+                        <!-- End Stats Item -->
                     }
                 </div>
 
@@ -181,7 +189,7 @@
                         }
                     </script>
                     <div class="swiper-wrapper align-items-center">
-                        @foreach(var clientImage in clientsImages)
+                        @foreach (var clientImage in clientsImages)
                         {
                             var clientImageContent = clientImage.Content as Image;
                             var clientImageURL = clientImageContent.UmbracoFile;
@@ -190,465 +198,209 @@
                         }
                     </div>
 
-        </section><!-- /Clients Section -->
+        </section>
+
+        <!-- /Clients Section -->
     }
 
     <!-- Services Section -->
-    <section id="services" class="services section">
+    @if (OfferedServicesList != null || OfferedServicesList.Any())
+    {
+        var delay = 0;
+        <section id="services" class="services section">
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Services</h2>
+                <p><span>Check Our</span> <span class="description-title">Services</span></p>
+            </div><!-- End Section Title -->
 
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Services</h2>
-            <p><span>Check Our</span> <span class="description-title">Services</span></p>
-        </div><!-- End Section Title -->
 
-        <div class="container">
+            <div class="container">
 
-            <div class="row gy-4">
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-item position-relative">
-                        <div class="icon">
-                            <i class="bi bi-activity"></i>
-                        </div>
-                        <a href="#" class="stretched-link">
-                            <h3>Nesciunt Mete</h3>
-                        </a>
-                        <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
-                    </div>
-                </div><!-- End Service Item -->
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-item position-relative">
-                        <div class="icon">
-                            <i class="bi bi-broadcast"></i>
-                        </div>
-                        <a href="#" class="stretched-link">
-                            <h3>Eosle Commodi</h3>
-                        </a>
-                        <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-                    </div>
-                </div><!-- End Service Item -->
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-item position-relative">
-                        <div class="icon">
-                            <i class="bi bi-easel"></i>
-                        </div>
-                        <a href="#" class="stretched-link">
-                            <h3>Ledo Markt</h3>
-                        </a>
-                        <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-                    </div>
-                </div><!-- End Service Item -->
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-item position-relative">
-                        <div class="icon">
-                            <i class="bi bi-bounding-box-circles"></i>
-                        </div>
-                        <a href="#" class="stretched-link">
-                            <h3>Asperiores Commodit</h3>
-                        </a>
-                        <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-                        <a href="#" class="stretched-link"></a>
-                    </div>
-                </div><!-- End Service Item -->
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                    <div class="service-item position-relative">
-                        <div class="icon">
-                            <i class="bi bi-calendar4-week"></i>
-                        </div>
-                        <a href="#" class="stretched-link">
-                            <h3>Velit Doloremque</h3>
-                        </a>
-                        <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-                        <a href="#" class="stretched-link"></a>
-                    </div>
-                </div><!-- End Service Item -->
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                    <div class="service-item position-relative">
-                        <div class="icon">
-                            <i class="bi bi-chat-square-text"></i>
-                        </div>
-                        <a href="#" class="stretched-link">
-                            <h3>Dolori Architecto</h3>
-                        </a>
-                        <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-                        <a href="#" class="stretched-link"></a>
-                    </div>
-                </div><!-- End Service Item -->
-
-            </div>
-
-        </div>
-
-    </section><!-- /Services Section -->
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section dark-background" style="direction: ltr;">
-
-        <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="swiper init-swiper">
-                <script type="application/json" class="swiper-config">
+                <div class="row gy-4">
+                    @foreach (var OfferedServices in OfferedServicesList)
                     {
-                      "loop": true,
-                      "speed": 600,
-                      "autoplay": {
-                        "delay": 5000
-                      },
-                      "slidesPerView": "auto",
-                      "pagination": {
-                        "el": ".swiper-pagination",
-                        "type": "bullets",
-                        "clickable": true
-                      }
+                        var OfferedServicesContent = OfferedServices.Content as BasicInfo;
+                        delay += 100;
+                        // get the url
+                        var urls = OfferedServicesContent.Urls;
+                        var url = urls.Any() ? urls.FirstOrDefault().Url : "/";
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="@delay">
+                            <div id="Service+@OfferedServicesContent.Key" class="service-item position-relative">
+                                <div class="icon">
+                                    <i class="bi @OfferedServicesContent.Icon"></i>
+                                </div>
+                                <a href="@url" class="stretched-link">
+                                    <h3>@OfferedServicesContent.Title</h3>
+                                </a>
+                                <p>@OfferedServicesContent.Data</p>
+                            </div>
+                        </div>
+
+                        <!-- End Service Item -->
                     }
-                </script>
-                <div class="swiper-wrapper">
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                            <h3>Saul Goodman</h3>
-                            <h4>Ceo &amp; Founder</h4>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bi bi-quote quote-icon-left"></i>
-                                <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
-                                <i class="bi bi-quote quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                            <h3>Sara Wilsson</h3>
-                            <h4>Designer</h4>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bi bi-quote quote-icon-left"></i>
-                                <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-                                <i class="bi bi-quote quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                            <h3>Jena Karlis</h3>
-                            <h4>Store Owner</h4>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bi bi-quote quote-icon-left"></i>
-                                <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-                                <i class="bi bi-quote quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                            <h3>Matt Brandon</h3>
-                            <h4>Freelancer</h4>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bi bi-quote quote-icon-left"></i>
-                                <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-                                <i class="bi bi-quote quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                            <h3>John Larson</h3>
-                            <h4>Entrepreneur</h4>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bi bi-quote quote-icon-left"></i>
-                                <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
-                                <i class="bi bi-quote quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div><!-- End testimonial item -->
 
                 </div>
-                <div class="swiper-pagination"></div>
-            </div>
-
-        </div>
-
-    </section><!-- /Testimonials Section -->
-    <!-- Team Section -->
-    <section id="team" class="team section light-background">
-
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Team</h2>
-            <p><span>Our Hardworking</span> <span class="description-title">Team</span></p>
-        </div><!-- End Section Title -->
-
-        <div class="container">
-
-            <div class="row gy-4">
-
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                    <div class="team-member">
-                        <div class="member-img">
-                            <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter-x"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>Walter White</h4>
-                            <span>Chief Executive Officer</span>
-                        </div>
-                    </div>
-                </div><!-- End Team Member -->
-
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-                    <div class="team-member">
-                        <div class="member-img">
-                            <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter-x"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>Sarah Jhonson</h4>
-                            <span>Product Manager</span>
-                        </div>
-                    </div>
-                </div><!-- End Team Member -->
-
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-                    <div class="team-member">
-                        <div class="member-img">
-                            <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter-x"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>William Anderson</h4>
-                            <span>CTO</span>
-                        </div>
-                    </div>
-                </div><!-- End Team Member -->
-
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-                    <div class="team-member">
-                        <div class="member-img">
-                            <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter-x"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>Amanda Jepson</h4>
-                            <span>Accountant</span>
-                        </div>
-                    </div>
-                </div><!-- End Team Member -->
 
             </div>
 
-        </div>
+        </section>
 
-    </section><!-- /Team Section -->
-    <!--
-    <!-- Faq Section
-    <section id="faq" class="faq section light-background">
+        <!-- /Services Section -->
+    }
 
-      <!-- Section Title
-      <div class="container section-title" data-aos="fade-up">
-        <h2>F.A.Q</h2>
-        <p><span>Frequently Asked</span> <span class="description-title">Questions</span></p>
-      </div><!-- End Section Title
+    <!-- Testimonials Section -->
+    @if (testimonialsList != null && testimonialsList.Any())
+    {
+        <section id="testimonials" class="testimonials section dark-background" style="direction: ltr;">
 
-      <div class="container">
+            <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
 
-        <div class="row justify-content-center">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-          <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper init-swiper">
+                    <script type="application/json" class="swiper-config">
+                        {
+                          "loop": true,
+                          "speed": 600,
+                          "autoplay": {
+                            "delay": 5000
+                          },
+                          "slidesPerView": "auto",
+                          "pagination": {
+                            "el": ".swiper-pagination",
+                            "type": "bullets",
+                            "clickable": true
+                          }
+                        }
+                    </script>
+                    <div class="swiper-wrapper">
+                        @foreach (var testimonial in testimonialsList)
+                        {
+                            var testimonialContent = testimonial.Content as BasicInfo2;
+                            if (testimonialContent != null)
+                            {
+                                var Images = testimonialContent.Urls;
 
-            <div class="faq-container">
+                                var Image = Images.Any() ? Images.FirstOrDefault().Url : "/";
 
-              <div class="faq-item faq-active">
-                <h3>Non consectetur a erat nam at lectus urna duis?</h3>
-                <div class="faq-content">
-                  <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
+                                <div class="swiper-slide">
+                                    <div class="testimonial-item">
+                                        <img src="@Image" class="testimonial-img" alt="">
+                                        <h3>@testimonialContent.Title</h3>
+                                        <h4>@testimonialContent.Subtitle</h4>
+                                        <div class="stars">
+                                            @for (int i = 0; i < 5; i++)
+                                            {
+                                                <i class="bi bi-star-fill"></i>
+                                            }
+                                        </div>
+                                        <p>
+                                            <i class="bi bi-quote quote-icon-left"></i>
+                                            <span>@testimonialContent.Data</span>
+                                            <i class="bi bi-quote quote-icon-right"></i>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- End testimonial item -->
+                            }
+                        }
+                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item
-
-              <div class="faq-item">
-                <h3>Feugiat scelerisque varius morbi enim nunc faucibus?</h3>
-                <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item
-
-              <div class="faq-item">
-                <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
-                <div class="faq-content">
-                  <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item
-
-              <div class="faq-item">
-                <h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
-                <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item
-
-              <div class="faq-item">
-                <h3>Tempus quam pellentesque nec nam aliquam sem et tortor?</h3>
-                <div class="faq-content">
-                  <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item
-
-              <div class="faq-item">
-                <h3>Perspiciatis quod quo quos nulla quo illum ullam?</h3>
-                <div class="faq-content">
-                  <p>Enim ea facilis quaerat voluptas quidem et dolorem. Quis et consequatur non sed in suscipit sequi. Distinctio ipsam dolore et.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item
 
             </div>
 
-          </div><!-- End Faq Column
+        </section>
+    }
 
-        </div>
-
-      </div>
-
-    </section><!-- /Faq Section
-    -->
     <!-- Contact Section -->
-    <section id="contact" class="contact section">
+    @if (ContactInfoList != null || ContactInfoList.Any())
+    {
+        var delay = 100;
+        <section id="contact" class="contact section">
 
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2 data-translate="contact_us">Contact Us</h2>
-            <p><span data-translate="need_help">Need Help?</span> <span class="description-title" data-translate="contact_us">Contact Us</span></p>
-        </div><!-- End Section Title -->
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2 data-translate="contact_us">Contact Us</h2>
+                <p><span data-translate="need_help">Need Help?</span> <span class="description-title" data-translate="contact_us">Contact Us</span></p>
+            </div><!-- End Section Title -->
 
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="container" data-aos="fade-up" data-aos-delay="@delay">
 
-            <div class="row gy-4">
+                <div class="row gy-4">
 
-                <div class="col-lg-5">
+                    <div class="col-lg-5">
+                        <div class="info-wrap">
+                            @foreach (var contactInfo in ContactInfoList)
+                            {
+                                delay += 100;
+                                var contactInfoContent = contactInfo.Content as BasicInfo;
+                                var contactInfoTitle = contactInfoContent.Title;
+                                var contactInfoIcon = contactInfoContent.Icon;
+                                var contactInfoData = contactInfoContent.Data;
 
-                    <div class="info-wrap">
-                        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                            <i class="bi bi-geo-alt flex-shrink-0"></i>
-                            <div>
-                                <h3 data-translate="address">Address</h3>
-                                <p>أسواق طيبة, King Fahd Rd, King Fahd, Riyadh 11484, Saudi Arabia</p>
-                            </div>
-                        </div><!-- End Info Item -->
+                                var urls = contactInfoContent.Urls;
+                                var url = urls.Any() ? urls.FirstOrDefault().Url : "/";
 
-                        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                            <i class="bi bi-telephone flex-shrink-0"></i>
-                            <div>
-                                <h3 data-translate="call_us">Call Us</h3>
-                                <p>+966 50 885 0172</p>
-                            </div>
-                        </div><!-- End Info Item -->
+                                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                                    <i class="bi @contactInfoIcon flex-shrink-0"></i>
+                                    <div>
+                                        <h3>@contactInfoTitle</h3>
+                                        <a href="@url" target="_blank"><p>@contactInfoData</p></a>
+                                        
+                                    </div>
+                                </div>
 
-                        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                            <i class="bi bi-envelope flex-shrink-0"></i>
-                            <div>
-                                <h3 data-translate="email_us">Email Us</h3>
-                                <p>najdoasiscompany@gmail.com</p>
-                            </div>
-                        </div><!-- End Info Item -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.645283189828!2d46.6554997!3d24.7331665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f1d50ce278cb7%3A0x47267e136f06e9dd!2sTaibah%20Markets!5e0!3m2!1sen!2ssa!4v1693033089387!5m2!1sen!2ssa" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-                        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
-                    </div>
-                </div>
-
-                <div class="col-lg-7">
-                    <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-                        <div class="row gy-4">
-
-                            <div class="col-md-6">
-                                <label for="name-field" class="pb-2" data-translate="your_name">Your Name</label>
-                                <input type="text" name="name" id="name-field" class="form-control" required="">
-                            </div>
-
-                            <div class="col-md-6">
-                                <label for="email-field" class="pb-2" data-translate="your_email">Your Email</label>
-                                <input type="email" class="form-control" name="email" id="email-field" required="">
-                            </div>
-
-                            <div class="col-md-12">
-                                <label for="subject-field" class="pb-2" data-translate="subject">Subject</label>
-                                <input type="text" class="form-control" name="subject" id="subject-field" required="">
-                            </div>
-
-                            <div class="col-md-12">
-                                <label for="message-field" class="pb-2" data-translate="message">Message</label>
-                                <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-                            </div>
-
-                            <div class="col-md-12 text-center">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                                <button type="submit" data-translate="send_message">Send Message</button>
-                            </div>
-
+                                <!-- End Info Item -->
+                            }
                         </div>
-                    </form>
-                </div><!-- End Contact Form -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.645283189828!2d46.6554997!3d24.7331665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f1d50ce278cb7%3A0x47267e136f06e9dd!2sTaibah%20Markets!5e0!3m2!1sen!2ssa!4v1693033089387!5m2!1sen!2ssa" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+                            <div class="row gy-4">
+
+                                <div class="col-md-6">
+                                    <label for="name-field" class="pb-2" data-translate="your_name">Your Name</label>
+                                    <input type="text" name="name" id="name-field" class="form-control" required="">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="email-field" class="pb-2" data-translate="your_email">Your Email</label>
+                                    <input type="email" class="form-control" name="email" id="email-field" required="">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label for="subject-field" class="pb-2" data-translate="subject">Subject</label>
+                                    <input type="text" class="form-control" name="subject" id="subject-field" required="">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label for="message-field" class="pb-2" data-translate="message">Message</label>
+                                    <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
+                                </div>
+
+                                <div class="col-md-12 text-center">
+                                    <div class="loading">Loading</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                                    <button type="submit" data-translate="send_message">Send Message</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div><!-- End Contact Form -->
+
+                </div>
 
             </div>
 
-        </div>
+        </section>
 
-    </section><!-- /Contact Section -->
-
+        <!-- /Contact Section -->
+    }
 </main>
