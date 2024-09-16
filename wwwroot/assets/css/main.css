@@ -2101,7 +2101,7 @@ section#about {
 }
 
 /* aT MEDIA MIND WIDNTH 600 PX HID BY CLASS DISPLAY-NONE */
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     .display-none {
         display: none;
     }

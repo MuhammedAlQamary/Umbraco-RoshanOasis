@@ -11,7 +11,7 @@
 
     // Determine the text direction based on the culture
     var CultureDirection = CurrentCulture!.Equals("ar", StringComparison.OrdinalIgnoreCase) ? "rtl" : "ltr";
-    
+
     // Displayed language title
     var CurrentLanguage = CurrentCulture.Equals("ar", StringComparison.OrdinalIgnoreCase) ? "العربية" : "English";
 
@@ -152,16 +152,11 @@
                             ? contactInfoContent.Urls.FirstOrDefault()?.Url
                             : "/";
 
-                            <i class="bi @contactInfoContent.Icon d-flex align-items-center ms-4">
-                                @if (url == "/")
-                                {
-                                    <span>@contactInfoContent.Data</span>
-                                }
-                                else
-                                {
-                                    <a class="display-none" style="line-height: normal;" href="@url" target="_blank">@contactInfoContent.Data</a>
-                                }
-                            </i>
+                            <a href="@url" target="_blank">
+                                <i class="bi @contactInfoContent.Icon d-flex align-items-center ms-4">
+                                    <span class="display-none">@contactInfoContent.Data</span>
+                                </i>
+                            </a>
                         }
                     }
                 </div>
@@ -396,8 +391,6 @@
                 height: auto;
                 max-height: 200px;
             }
-
-            
 
     </style>
 </body>
