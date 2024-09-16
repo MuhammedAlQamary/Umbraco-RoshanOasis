@@ -1,4 +1,4 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 
 @{
@@ -105,8 +105,8 @@
     @await Html.PartialAsync("metadata")
 
     <!-- Favicons -->
-    <link href="assets/img/RoshanOASIS.png" rel="icon">
-    <link href="assets/img/RoshanOASIS.png" rel="apple-touch-icon">
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -142,41 +142,41 @@
                 <div class="contact-info d-flex align-items-center">
                     @if (ContactInfoList.Any())
                     {
-                        foreach (var contactInfo in ContactInfoList)
-                        {
-                            var contactInfoContent = contactInfo.Content as BasicInfo;
-                            if (contactInfoContent == null) continue;
+                    foreach (var contactInfo in ContactInfoList)
+                    {
+                    var contactInfoContent = contactInfo.Content as BasicInfo;
+                    if (contactInfoContent == null) continue;
 
-                            // Null-checking and URL assignment
-                            var url = (contactInfoContent.Urls != null && contactInfoContent.Urls.Any())
-                            ? contactInfoContent.Urls.FirstOrDefault()?.Url
-                            : "/";
+                    // Null-checking and URL assignment
+                    var url = (contactInfoContent.Urls != null && contactInfoContent.Urls.Any())
+                    ? contactInfoContent.Urls.FirstOrDefault()?.Url
+                    : "/";
 
-                            <a href="@url" target="_blank">
-                                <i class="bi @contactInfoContent.Icon d-flex align-items-center ms-4">
-                                    <span class="display-none">@contactInfoContent.Data</span>
-                                </i>
-                            </a>
-                        }
+                    <a href="@url" target="_blank">
+                        <i class="bi @contactInfoContent.Icon d-flex align-items-center ms-4">
+                            <span class="display-none">@contactInfoContent.Data</span>
+                        </i>
+                    </a>
+                    }
                     }
                 </div>
                 <div class="social-links d-none d-md-flex align-items-center">
                     @if (SocialMediaList.Any())
                     {
-                        foreach (var socialMedia in SocialMediaList)
-                        {
-                            var socialMediaContent = socialMedia.Content as BasicInfo;
-                            if (socialMediaContent == null) continue;
+                    foreach (var socialMedia in SocialMediaList)
+                    {
+                    var socialMediaContent = socialMedia.Content as BasicInfo;
+                    if (socialMediaContent == null) continue;
 
-                            // Null-checking and URL assignment
-                            var url = (socialMediaContent.Urls != null && socialMediaContent.Urls.Any())
-                            ? socialMediaContent.Urls.FirstOrDefault()?.Url
-                            : "/";
+                    // Null-checking and URL assignment
+                    var url = (socialMediaContent.Urls != null && socialMediaContent.Urls.Any())
+                    ? socialMediaContent.Urls.FirstOrDefault()?.Url
+                    : "/";
 
-                            <a target="_blank" href="@url" class="@socialMediaContent.Title">
-                                <i class="bi @socialMediaContent.Icon"></i>
-                            </a>
-                        }
+                    <a target="_blank" href="@url" class="@socialMediaContent.Title">
+                        <i class="bi @socialMediaContent.Icon"></i>
+                    </a>
+                    }
                     }
                 </div>
             </div>
@@ -194,55 +194,55 @@
                 @* @await Html.PartialAsync("navigation") *@
                 @if (NavmenuList.Any())
                 {
-                    <nav id="navmenu" class="navmenu">
-                        <ul>
-                            @foreach (var navMenu in NavmenuList)
-                            {
-                                var navMenuContent = navMenu.Content as BasicInfo;
-                                if (navMenuContent == null) continue;
+                <nav id="navmenu" class="navmenu">
+                    <ul>
+                        @foreach (var navMenu in NavmenuList)
+                        {
+                        var navMenuContent = navMenu.Content as BasicInfo;
+                        if (navMenuContent == null) continue;
 
-                                // Null-checking and URL assignment
-                                var url = (navMenuContent.Urls != null && navMenuContent.Urls.Any())
-                                ? navMenuContent.Urls.FirstOrDefault()?.Url
-                                : "/";
+                        // Null-checking and URL assignment
+                        var url = (navMenuContent.Urls != null && navMenuContent.Urls.Any())
+                        ? navMenuContent.Urls.FirstOrDefault()?.Url
+                        : "/";
 
-                                <li><a href="@url" class="@navMenuContent.Data">@navMenuContent.Title</a></li>
-                            }
+                        <li><a href="@url" class="@navMenuContent.Data">@navMenuContent.Title</a></li>
+                        }
 
-                            @if (links.Any())
-                            {
-                                <li class="dropdown">
-                                    <a href="#">
-                                        <span>@catalogsTitle</span>
-                                        <i class="bi bi-chevron-down toggle-dropdown"></i>
-                                    </a>
-                                    <ul>
-                                        @foreach (var link in links)
-                                        {
-                                            <li><a href="@link.Url" target="@link.Target">@link.Name</a></li>
-                                        }
-                                    </ul>
+                        @if (links.Any())
+                        {
+                        <li class="dropdown">
+                            <a href="#">
+                                <span>@catalogsTitle</span>
+                                <i class="bi bi-chevron-down toggle-dropdown"></i>
+                            </a>
+                            <ul>
+                                @foreach (var link in links)
+                                {
+                                <li><a href="@link.Url" target="@link.Target">@link.Name</a></li>
+                                }
+                            </ul>
+                        </li>
+                        }
+
+                        <!-- Language Switcher -->
+                        <li class="dropdown">
+                            <a href="#">
+                                <span>@CurrentLanguage</span>
+                                <i class="bi bi-chevron-down toggle-dropdown"></i>
+                            </a>
+                            <ul>
+                                <li class="@(CurrentCulture == " en" ? "selected" : "" )">
+                                    <a href="#" onclick="setLanguage('en')">English</a>
                                 </li>
-                            }
-
-                            <!-- Language Switcher -->
-                            <li class="dropdown">
-                                <a href="#">
-                                    <span>@CurrentLanguage</span>
-                                    <i class="bi bi-chevron-down toggle-dropdown"></i>
-                                </a>
-                                <ul>
-                                    <li class="@(CurrentCulture == "en" ? "selected" : "")">
-                                        <a href="#" onclick="setLanguage('en')">English</a>
-                                    </li>
-                                    <li class="@(CurrentCulture == "ar" ? "selected" : "")">
-                                        <a href="#" onclick="setLanguage('ar')">العربية</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-                    </nav>
+                                <li class="@(CurrentCulture == " ar" ? "selected" : "" )">
+                                    <a href="#" onclick="setLanguage('ar')">العربية</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+                </nav>
                 }
 
 
@@ -334,48 +334,48 @@
 
     @*
     <script>
-    async function loadTranslations() {
-    try {
-    const response = await fetch('translations/index.json'); // Fetch the JSON file
+        async function loadTranslations() {
+            try {
+                const response = await fetch('translations/index.json'); // Fetch the JSON file
 
-    if (!response.ok) {
-    throw new Error('Network response was not ok ' + response.statusText);
-    }
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
 
-    const data = await response.json(); // Parse the JSON data
+                const data = await response.json(); // Parse the JSON data
 
-    return data; // Return the parsed data
-    } catch (error) {
-    console.error('There has been a problem with your fetch operation:', error);
-    }
-    }
+                return data; // Return the parsed data
+            } catch (error) {
+                console.error('There has been a problem with your fetch operation:', error);
+            }
+        }
 
-    function getLanguage() {
-    return "@Model.GetCultureFromDomains()";
-    }
+        function getLanguage() {
+            return "@Model.GetCultureFromDomains()";
+        }
 
-    function setDir(lang) {
-    document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    }
+        function setDir(lang) {
+            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        }
 
-    async function setLanguage(lang, translations) {
-    // Use an immediately invoked function expression (IIFE) to call the async function and assign its result
-    // Assign fetched data to `translations`
-    document.documentElement.lang = lang;
+        async function setLanguage(lang, translations) {
+            // Use an immediately invoked function expression (IIFE) to call the async function and assign its result
+            // Assign fetched data to `translations`
+            document.documentElement.lang = lang;
 
-    for (const key in translations[lang]) {
-    document.querySelectorAll(`[data-translate="${key}"]`).forEach(el => {
-    el.textContent = translations[lang][key];
-    });
-    }
-    }
+            for (const key in translations[lang]) {
+                document.querySelectorAll(`[data-translate="${key}"]`).forEach(el => {
+                    el.textContent = translations[lang][key];
+                });
+            }
+        }
 
-    document.addEventListener("DOMContentLoaded", () => {
-    const translations = loadTranslations();
-    let lang = getLanguage();
-    setLanguage(lang, translations);
-    setDir(lang)
-    });
+        document.addEventListener("DOMContentLoaded", () => {
+            const translations = loadTranslations();
+            let lang = getLanguage();
+            setLanguage(lang, translations);
+            setDir(lang)
+        });
     </script>
     *@
     <style>
@@ -391,7 +391,6 @@
                 height: auto;
                 max-height: 200px;
             }
-
     </style>
 </body>
 
