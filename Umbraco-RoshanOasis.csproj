@@ -6,9 +6,6 @@
     <RootNamespace>Umbraco_RoshanOasis</RootNamespace>
     <Configurations>Debug;Release;UAT;LIVE</Configurations>
   </PropertyGroup>
-  <ItemGroup>
-    <Content Remove="Views\Products-details.cshtml" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Umbraco.Cms" Version="13.4.1" />
@@ -22,10 +19,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\umbraco\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Views\Products-details.cshtml" />
   </ItemGroup>
 
   <PropertyGroup>
