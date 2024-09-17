@@ -2100,6 +2100,19 @@ section#about {
     color: inherit;
 }
 
+/* Container for the image and WhatsApp icon */
+.product-image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ensuring all images are square */
+.product-image-container img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+}
+
 /* aT MEDIA MIND WIDNTH 600 PX HID BY CLASS DISPLAY-NONE */
 @media (max-width: 500px) {
     .display-none {
