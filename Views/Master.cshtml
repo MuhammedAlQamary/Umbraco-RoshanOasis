@@ -276,6 +276,35 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <!-- Language Switcher Script -->
+    <script>
+        // make function that reload the url put after adding the CurrentCulture to the url
+        function setLanguage(lang) {
+            // check if there is a language in the url
+            if (window.location.href.includes("/en") || window.location.href.includes("/ar")) {
+                // replace the language in the url with the new language
+                window.location.href = window.location.href.replace(/\/(en|ar)/, `/${lang}`);
+            }
+            else {
+                // add the language to the url
+                window.location.href = `/${lang}`;
+                setDir(lang);
+            }
+        }
+        function getLanguage() {
+            return "@CurrentCulture";
+        }
+        function setDir(lang) {
+            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            let lang = getLanguage();
+
+        });
+
+    </script>
+
 </body>
 
 </html>
