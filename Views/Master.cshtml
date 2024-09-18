@@ -17,8 +17,6 @@
 
     #endregion
 
-
-
     #region Umbraco Content Models
 
 
@@ -27,7 +25,13 @@
 
     var CompanyName = homePage.Value("companyName");
 
+    // get umbraco model id
+
+
     var ContactInfoList = homePage.ContactInfo!;
+
+    var modelId = ((Umbraco.Cms.Core.Models.PublishedContent.PublishedContentWrapped)Model).Id;
+
     if (ContactInfoList.Any())
     {
         foreach (var contactInfo in ContactInfoList)
@@ -288,7 +292,7 @@
             }
             else {
                 // add the language to the url
-                window.location.href = `/1063?culture=${lang}`;
+                window.location.href = `/@modelId5?culture=${lang}`;
                 setDir(lang);
             }
         }
