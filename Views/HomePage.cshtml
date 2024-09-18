@@ -5,6 +5,9 @@
 @{
     Layout = "Master.cshtml";
     var homePage = Model as Umbraco.Cms.Web.Common.PublishedModels.HomePage;
+
+
+
     var servicesList = homePage.Services;
     foreach (var service in servicesList)
     {

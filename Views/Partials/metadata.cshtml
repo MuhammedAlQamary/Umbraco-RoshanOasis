@@ -1,8 +1,30 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    var homePage = Model as Umbraco.Cms.Web.Common.PublishedModels.HomePage;
+    var servicesList = homePage.Services;
+
+    var keywords = homePage.Metakeywords;//as Umbraco.Cms.Core.Models.Blocks.BlockListModel;
+    var keys = "";
+    foreach (var key in keywords)
+    {
+        var keyContent = key.Content as ListOfStrings;
+        var keywordasstring = keyContent.String;
+        keys += keywordasstring + ", ";
+    }
+
+    var test = keys;
+
+    var description = Model.Value("description");
+    var title = Model.Value("title");
+    var companyName = Model.Value("companyName");
+
+}
+
+
 
 <!-- Meta Tags -->
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>@Model.Value("title") - @Model.Value("companyName")</title>
-<meta name="description" content="">
-<meta name="keywords" content="">
+<title>@title - @companyName</title>
+<meta name="description" content="@description">
+<meta name="keywords" content="@keys">

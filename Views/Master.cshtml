@@ -25,7 +25,7 @@
     var homePage = Model as Umbraco.Cms.Web.Common.PublishedModels.HomePage;
     if (homePage == null) throw new InvalidOperationException("The model is not of type HomePage");
 
-    var CompanyName = homePage.CompanyName;
+    var CompanyName = homePage.Value("companyName");
 
     var ContactInfoList = homePage.ContactInfo!;
     if (ContactInfoList.Any())

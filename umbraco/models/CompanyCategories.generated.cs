@@ -80,13 +80,5 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("listOfCompanyProducts")]
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel ListOfCompanyProducts => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "listOfCompanyProducts");
-
-		///<summary>
-		/// List of Products
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("listOfProducts")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel ListOfProducts => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "listOfProducts");
 	}
 }

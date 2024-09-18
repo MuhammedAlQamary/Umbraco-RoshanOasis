@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Home Page</summary>
 	[PublishedModel("homePage")]
-	public partial class HomePage : PublishedContentModel, ICatalogs, IHeaderProperties
+	public partial class HomePage : PublishedContentModel, ICatalogs
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -106,6 +106,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops CompanyImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "companyImage");
 
 		///<summary>
+		/// CompanyName
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("companyName")]
+		public virtual string CompanyName => this.Value<string>(_publishedValueFallback, "companyName");
+
+		///<summary>
 		/// Contact Info
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
@@ -122,12 +130,36 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel ContactTitle => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "contactTitle");
 
 		///<summary>
+		/// Description: {meta name="description" content=""}
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("description")]
+		public virtual string Description => this.Value<string>(_publishedValueFallback, "description");
+
+		///<summary>
+		/// keywords: {meta name="keywords" content=""}
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("keywords")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel Keywords => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "keywords");
+
+		///<summary>
 		/// Main Catalogs Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("mainCatalogsTitle")]
 		public virtual string MainCatalogsTitle => this.Value<string>(_publishedValueFallback, "mainCatalogsTitle");
+
+		///<summary>
+		/// metakeywords
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("metakeywords")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel Metakeywords => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "metakeywords");
 
 		///<summary>
 		/// details
@@ -210,19 +242,19 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel Testimonials => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "testimonials");
 
 		///<summary>
+		/// Title: {title}@Model.Value("title") - @Model.Value("companyName"){/title}
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("title")]
+		public virtual string Title => this.Value<string>(_publishedValueFallback, "title");
+
+		///<summary>
 		/// MainCatalogs: Add links to the main catalogs
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("mainCatalogs")]
 		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> MainCatalogs => global::Umbraco.Cms.Web.Common.PublishedModels.Catalogs.GetMainCatalogs(this, _publishedValueFallback);
-
-		///<summary>
-		/// Company Name: Enter a title for the page
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.4.1+d72fc5c")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("companyName")]
-		public virtual string CompanyName => global::Umbraco.Cms.Web.Common.PublishedModels.HeaderProperties.GetCompanyName(this, _publishedValueFallback);
 	}
 }
