@@ -1,4 +1,5 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using Azure.Core
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 
 @{
@@ -7,13 +8,23 @@
     #region Umbraco Language
 
     // Retrieve the current culture from the model
-    var CurrentCulture = Model.GetCultureFromDomains();
+
+    var currentCulture = Context.Request.Query["culture"];
+    if (string.IsNullOrEmpty(currentCulture))
+    {
+        currentCulture = "ar"; // Default to English or your preferred default culture
+    }
+
+    // var CurrentCulture = Request.RequestContent.["culture"]?.ToString() ?? Model.GetCultureFromDomains();
+    // Context.Request.Query["culture"].ToString() ?? Model.GetCultureFromDomains();
+
+    // Model.GetCultureFromDomains();
 
     // Determine the text direction based on the culture
-    var CultureDirection = CurrentCulture!.Equals("ar", StringComparison.OrdinalIgnoreCase) ? "rtl" : "ltr";
+    var CultureDirection = string.Equals(currentCulture, "ar", StringComparison.OrdinalIgnoreCase) ? "rtl" : "ltr";
 
     // Displayed language title
-    var CurrentLanguage = CurrentCulture.Equals("ar", StringComparison.OrdinalIgnoreCase) ? "العربية" : "English";
+    var CurrentLanguage = string.Equals(currentCulture, "ar", StringComparison.OrdinalIgnoreCase) ? "العربية" : "English";
 
     #endregion
 
@@ -103,7 +114,7 @@
 }
 
 <!DOCTYPE html>
-<html lang="@CurrentCulture">
+<html lang="@currentCulture">
 
 <head>
     @await Html.PartialAsync("metadata")
@@ -236,10 +247,10 @@
                                     <i class="bi bi-chevron-down toggle-dropdown"></i>
                                 </a>
                                 <ul>
-                                    <li class="@(CurrentCulture == "en" ? "selected" : "")">
+                                    <li class="@(currentCulture == "en" ? "selected" : "")">
                                         <a href="#" onclick="setLanguage('en')">English</a>
                                     </li>
-                                    <li class="@(CurrentCulture == "ar" ? "selected" : "")">
+                                    <li class="@(currentCulture == "ar" ? "selected" : "")">
                                         <a href="#" onclick="setLanguage('ar')">العربية</a>
                                     </li>
                                 </ul>
@@ -297,7 +308,7 @@
             }
         }
         function getLanguage() {
-            return "@CurrentCulture";
+            return "@currentCulture";
         }
         function setDir(lang) {
             document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
