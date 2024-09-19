@@ -32,83 +32,21 @@
 
 
     var homePage = Model as Umbraco.Cms.Web.Common.PublishedModels.HomePage;
-    if (homePage == null) throw new InvalidOperationException("The model is not of type HomePage");
+    if (homePage == null) throw new InvalidOperationException("Home Page Data Does not exit!");
 
     var CompanyName = homePage.Value("companyName");
 
     // get umbraco model id
+    var modelId = ((Umbraco.Cms.Core.Models.PublishedContent.PublishedContentWrapped)Model).Id;
 
 
     var ContactInfoList = homePage.ContactInfo!;
 
-    var modelId = ((Umbraco.Cms.Core.Models.PublishedContent.PublishedContentWrapped)Model).Id;
 
-    if (ContactInfoList.Any())
-    {
-        foreach (var contactInfo in ContactInfoList)
-        {
-            var contactInfoContent = contactInfo.Content as BasicInfo;
-            if (contactInfoContent == null) continue;
-            var ContactTitle = contactInfoContent.Title;
-            var ContactData = contactInfoContent.Data;
-            var ContactIcon = contactInfoContent.Icon;
-            var ContactUrlList = contactInfoContent.Urls!;
-            var testval = ContactUrlList.Any() ? ContactUrlList.FirstOrDefault().Url : "/";
-            if (ContactUrlList.Any())
-            {
-                foreach (var contactUrl in ContactUrlList)
-                {
-                    var ContactUrl = contactUrl.Url;
-                }
-            }
-        };
-    }
     var NavmenuList = homePage.Navmenu!;
-    if (NavmenuList.Any())
-    {
-        foreach (var navmenu in NavmenuList)
-        {
-            var navmenuContent = navmenu.Content as BasicInfo;
-            if (navmenuContent == null) continue;
-            var NavMenuTitle = navmenuContent.Title;
-            var NavMenuData = navmenuContent.Data;
-            var NavMenuIcon = navmenuContent.Icon;
-            var NavMenuUrlList = navmenuContent.Urls!;
-
-            if (NavMenuUrlList.Any())
-            {
-                foreach (var navMenuUrl in NavMenuUrlList)
-                {
-                    var NavMenuUrl = navMenuUrl.Url;
-
-
-                }
-            }
-        }
-    }
     var catalogsTitle = homePage.MainCatalogsTitle;
     var links = homePage.MainCatalogs;
     var SocialMediaList = homePage.SocialMediaInfo;
-    if (SocialMediaList.Any())
-    {
-        foreach (var socialMedia in SocialMediaList)
-        {
-            var socialMediaContent = socialMedia.Content as BasicInfo;
-            if (socialMediaContent == null) continue;
-            var SocialMediaTitle = socialMediaContent.Title;
-            var SocialMediaData = socialMediaContent.Data;
-            var SocialMediaIcon = socialMediaContent.Icon;
-            var SocialMediaUrlList = socialMediaContent.Urls!;
-
-            if (SocialMediaUrlList.Any())
-            {
-                foreach (var socialMediaUrl in SocialMediaUrlList)
-                {
-                    var SocialMediaUrl = socialMediaUrl.Url;
-                }
-            }
-        }
-    }
     #endregion
 
 }
@@ -317,16 +255,13 @@
             else {
                 // add the language to the url
                 window.location.href = `/@modelId?culture=${lang}`;
-                setDir(lang);
             }
         }
         function getLanguage() {
             return "@currentCulture";
         }
-        function setDir(lang) {
-            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
-        }
         document.addEventListener("DOMContentLoaded", () => {
+            debugger;
             let lang = getLanguage();
 
         });
